@@ -10,6 +10,7 @@ import Gallery from './pages/Gallery';
 import About from './pages/About';
 import Mypage from './pages/Mypage';
 
+import './App.css';
 
 function App() {
   return (

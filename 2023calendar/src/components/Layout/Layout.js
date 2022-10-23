@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 
 import Navbar from '../Navbar/Navbar'
@@ -10,7 +10,9 @@ function Layout() {
     return (
         <>
         <Navbar />
+        <br/><br/><br/><br/>
         <Outlet />
+        <Footer />
         </>
 
     )
