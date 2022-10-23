@@ -99,7 +99,7 @@ function Navbar() {
                     <Menu> <CloseIcon onClick={click}/> </Menu>
                     <br/>
                     <SubTitle onClick={() => (window.location.href = '/')}>fancyeow</SubTitle>
-                    <LoginText>로그인/회원가입</LoginText>
+                    <LoginText onClick={() => (window.location.href = '/Login')}>로그인/회원가입</LoginText>
                     <Line />
                     <MenuBox>
                         <MenuText onClick={() => (window.location.href = '/Calendar')}>2023 Calendar</MenuText>

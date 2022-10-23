@@ -9,6 +9,8 @@ import Calendar from './pages/Calendar';
 import Gallery from './pages/Gallery';
 import About from './pages/About';
 import Mypage from './pages/Mypage';
+import Login from './pages/Login';
+import UserEdit from './pages/UserEdit';
 
 import './App.css';
 
@@ -24,7 +26,8 @@ function App() {
           <Route path="gallery" element={<Gallery />} />
           <Route path="about" element={<About />} />
           <Route path="mypage" element={<Mypage />} />
-
+          <Route path="login" element={<Login />} />          
+          <Route path="UserEdit" element={<UserEdit />} />
         </Route>
       </Routes>
       

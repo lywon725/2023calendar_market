@@ -6,7 +6,6 @@ position:absolute;
 bottom:0;
 width: 100%;
 text-align: center;
-
 `
 const SubText = styled.div`
 font-family: 'Academy Engraved LET';

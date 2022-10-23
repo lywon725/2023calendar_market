@@ -1,8 +1,19 @@
 import React from 'react'
+import styled from 'styled-components';
 
+const OrderBox = styled.button`
+font-family: 'JejuMyeongjo';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 12px;
+color: white;
+`
 function Calendar() {
     return (
-        <div>캘린더</div>
+        <>
+            <OrderBox onClick={() => (window.location.href = '/Mypage')} >주문하기</OrderBox>
+        </>
     )
 }
 
