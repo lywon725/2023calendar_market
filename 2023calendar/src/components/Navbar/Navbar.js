@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState} from 'react';
 import styled from 'styled-components';
+import {auth, signInWithGoogle} from '../../firebase';
 
 //material UI
 import DensityMediumIcon from '@mui/icons-material/DensityMedium';
@@ -89,8 +90,26 @@ function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const click= () => {
         {isOpen ? setIsOpen(false) : setIsOpen(true)};
-        console.log(isOpen);
     }
+
+    //로그인 확인 함수
+    const [isLoggedIn, setLoggedIn] = useState(false);
+    //흐음 
+    useEffect(() => {
+        console.log("실행됨");
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                setLoggedIn(true);
+                console.log("loggedIn");
+            } else {
+                setLoggedIn(false);
+                console.log("loggedOut");
+            }
+        })
+    }, []);
+
+    //const user = auth().currentUser;
+
     return (
         <Nav>
             <Logo onClick={() => (window.location.href = '/')}>fancyeow</Logo>
@@ -99,7 +118,15 @@ function Navbar() {
                     <Menu> <CloseIcon onClick={click}/> </Menu>
                     <br/>
                     <SubTitle onClick={() => (window.location.href = '/')}>fancyeow</SubTitle>
-                    <LoginText onClick={() => (window.location.href = '/Login')}>로그인/회원가입</LoginText>
+                    {isLoggedIn ? (
+                        <div>
+                            <LoginText onClick={() => (auth.signOut()) }>로그아웃</LoginText> 
+                        </div>
+                    ) : (
+                        <div> 
+                        <LoginText onClick ={signInWithGoogle}>구글 로그인</LoginText>
+                        </div>
+                    )}
                     <Line />
                     <MenuBox>
                         <MenuText onClick={() => (window.location.href = '/Calendar')}>2023 Calendar</MenuText>
@@ -116,11 +143,9 @@ function Navbar() {
                     <DensityMediumIcon onClick={click}/>
                 </Menu>
             )}
-            
-
-
         </Nav>
-    )
+    );
 }
+
 
 export default Navbar

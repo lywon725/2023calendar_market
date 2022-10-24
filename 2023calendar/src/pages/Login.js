@@ -1,14 +1,17 @@
-import {signInWithGoogle} from '../firebase';
-
-// import { auth } from '../firebase';
-// import { GoogleAuthProvider, signInWithPopup } from '../firebase/auth';
+import {auth, signInWithGoogle} from '../firebase';
 
 function Login() {
+    const LoginChange = ()=>{
+        auth.onAuthStateChanged(user => {
+            this.setState({ currenUser: user});
+        })    
+    }
     return (
         <> 
         <button onClick ={signInWithGoogle}>Login</button>
+
         </>
-    )
+    );
 }
 
 export default Login
