@@ -1,8 +1,12 @@
-import React from 'react'
+import {signInWithGoogle} from '../firebase';
+
+// import { auth } from '../firebase';
+// import { GoogleAuthProvider, signInWithPopup } from '../firebase/auth';
 
 function Login() {
     return (
-        <> 로그인
+        <> 
+        <button onClick ={signInWithGoogle}>Login</button>
         </>
     )
 }
