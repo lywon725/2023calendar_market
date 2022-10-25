@@ -9,8 +9,10 @@ import Calendar from './pages/Calendar';
 import Gallery from './pages/Gallery';
 import About from './pages/About';
 import Mypage from './pages/Mypage';
-import Login from './pages/Login';
 import UserEdit from './pages/UserEdit';
+import Order1 from './pages/order/Order1';
+import Order2 from './pages/order/Order2';
+import Order_complete from './pages/order/Order_complete';
 
 import './App.css';
 import { useEffect } from 'react';
@@ -28,8 +30,11 @@ function App() {
           <Route path="gallery" element={<Gallery />} />
           <Route path="about" element={<About />} />
           <Route path="mypage" element={<Mypage />} />
-          <Route path="login" element={<Login />} />          
-          <Route path="UserEdit" element={<UserEdit />} />
+          <Route path="mypage/UserEdit" element={<UserEdit />} />
+          
+          <Route path="order1" element={<Order1 />} />
+          <Route path="order2" element={<Order2 />} />
+          <Route path="order_complete" element={<Order_complete />} />
         </Route>
       </Routes>
       

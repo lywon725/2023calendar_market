@@ -94,7 +94,7 @@ function Navbar() {
 
     //로그인 확인 함수
     const [isLoggedIn, setLoggedIn] = useState(false);
-    //흐음 
+    //배열을 가진 useEffect 리렌더링될때 마다 실행됨
     useEffect(() => {
         console.log("실행됨");
         auth.onAuthStateChanged(user => {

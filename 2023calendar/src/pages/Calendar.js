@@ -12,7 +12,7 @@ color: white;
 function Calendar() {
     return (
         <>
-            <OrderBox onClick={() => (window.location.href = '/Mypage')} >주문하기</OrderBox>
+            <OrderBox onClick={() => (window.location.href = '/Order1')} >주문하기</OrderBox>
         </>
     )
 }
