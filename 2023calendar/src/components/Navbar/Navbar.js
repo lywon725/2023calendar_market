@@ -2,6 +2,9 @@ import React, { useRef, useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {auth, signInWithGoogle} from '../../firebase';
 
+//import Popup from '../Popup/Popup'; //아쉽다 구현못했어 ㅠㅠ
+
+
 //material UI
 import DensityMediumIcon from '@mui/icons-material/DensityMedium';
 import CloseIcon from '@mui/icons-material/Close';
@@ -35,6 +38,7 @@ const Sidebar = styled.div`
     float: right;
     background-color: white; 
     border-radius: 10px;
+    z-index:10;
 `
 
 const SubTitle = styled.div`
@@ -108,7 +112,8 @@ function Navbar() {
         })
     }, []);
 
-    //const user = auth().currentUser;
+    //Popup 메세지 함수
+    const [popup, setPopup] = useState({open: false, title: "", message: "", callback: false});
 
     return (
         <Nav>

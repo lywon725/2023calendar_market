@@ -1,6 +1,8 @@
-import React, { useRef, useEffect, useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import styled from 'styled-components';
-import {auth, signInWithGoogle} from '../firebase';
+import {auth} from '../firebase';
+
+import Popup from '../components/Popup/Popup';
 
 const OrderBox = styled.button`
 font-family: 'JejuMyeongjo';
@@ -33,13 +35,19 @@ function Calendar() {
             window.location.href = '/Order1'
         : 
             //로그인 안했을때 
-            console.log("로그인을 해주세요")
+            setPopup({
+                open: true,
+                title: "Notice Message",
+                message: "로그인 후, 주문 가능합니다.\n 좌측 탭에서 로그인 부탁드려요!🥹"
+            });
         };
     }
+    const [popup, setPopup] = useState({open: false, title: "", message: "", callback: false});
     
     return (
         <>
             <OrderBox onClick={() => (check())} >주문하기</OrderBox>
+            <Popup open = {popup.open} setPopup = {setPopup} message = {popup.message} title = {popup.title} callback = {popup.callback}/>
         </>
     )
 }
